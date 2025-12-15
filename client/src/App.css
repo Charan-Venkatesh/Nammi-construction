@@ -1,0 +1,78 @@
+.App {
+  min-height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.animation-stage-3d {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.animation-stage {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.info-footer {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.brand-tagline {
+  font-size: 14px;
+  color: #8B9DAF;
+  font-weight: 300;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .animation-stage {
+    height: 70vh;
+    max-width: 95vw;
+  }
+
+  .brand-tagline {
+    font-size: 11px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animation-stage {
+    height: 60vh;
+  }
+  
+  .info-footer {
+    bottom: 15px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

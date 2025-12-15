@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAMMI Constructions - Logo Animation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="animation-selector">
+        <button onclick="showAnimation('master')" class="active">Master Animation</button>
+        <button onclick="showAnimation('minimal')">Minimal Variant</button>
+        <button onclick="showAnimation('micro')">Micro Animation</button>
+        <button onclick="replayAnimation()">↻ Replay</button>
+    </div>
+
+    <!-- Master Animation (Primary) -->
+    <div id="master-animation" class="animation-container active">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <!-- Crane Arm -->
+            <path id="crane-arm" class="crane" d="M 50 120 L 180 120 L 180 90 L 190 90 L 190 120 L 220 120" 
+                  stroke="#1E3A5F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            
+            <!-- Crane Tower -->
+            <rect id="crane-tower" class="crane" x="177" y="90" width="6" height="80" fill="#1E3A5F"/>
+            
+            <!-- Hook Line -->
+            <line id="hook-line" class="crane" x1="190" y1="120" x2="190" y2="150" 
+                  stroke="#1E3A5F" stroke-width="2" stroke-dasharray="3,3"/>
+            
+            <!-- Concrete Block -->
+            <g id="concrete-block" class="block">
+                <rect x="175" y="150" width="30" height="20" fill="#8B9DAF" stroke="#1E3A5F" stroke-width="1"/>
+                <line x1="180" y1="150" x2="180" y2="170" stroke="#1E3A5F" stroke-width="0.5"/>
+                <line x1="195" y1="150" x2="195" y2="170" stroke="#1E3A5F" stroke-width="0.5"/>
+            </g>
+            
+            <!-- House Roof -->
+            <path id="roof" class="building" d="M 140 190 L 200 150 L 260 190" 
+                  stroke="#1E3A5F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <!-- Building Base -->
+            <g id="building-base" class="building">
+                <rect x="150" y="190" width="100" height="80" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2"/>
+                
+                <!-- Windows -->
+                <rect x="165" y="205" width="20" height="20" fill="#1E3A5F" opacity="0.8"/>
+                <rect x="215" y="205" width="20" height="20" fill="#1E3A5F" opacity="0.8"/>
+                
+                <!-- Door -->
+                <rect x="185" y="235" width="30" height="35" fill="#1E3A5F" opacity="0.8"/>
+            </g>
+            
+            <!-- Building Blocks Stack -->
+            <g id="blocks-stack" class="building">
+                <rect x="265" y="210" width="35" height="15" fill="#D4D4D4" stroke="#8B9DAF" stroke-width="1"/>
+                <rect x="268" y="225" width="35" height="15" fill="#E5E5E5" stroke="#8B9DAF" stroke-width="1"/>
+                <rect x="265" y="240" width="35" height="15" fill="#D4D4D4" stroke="#8B9DAF" stroke-width="1"/>
+                <rect x="268" y="255" width="35" height="15" fill="#E5E5E5" stroke="#8B9DAF" stroke-width="1"/>
+            </g>
+            
+            <!-- Brick Wall -->
+            <g id="brick-wall" class="building">
+                <rect x="310" y="220" width="35" height="50" fill="#FFFFFF" stroke="#8B9DAF" stroke-width="1"/>
+                <!-- Brick pattern -->
+                <line x1="310" y1="230" x2="345" y2="230" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="310" y1="240" x2="345" y2="240" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="310" y1="250" x2="345" y2="250" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="310" y1="260" x2="345" y2="260" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="320" y1="220" x2="320" y2="230" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="330" y1="230" x2="330" y2="240" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="320" y1="240" x2="320" y2="250" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="330" y1="250" x2="330" y2="260" stroke="#8B9DAF" stroke-width="0.5"/>
+                <line x1="320" y1="260" x2="320" y2="270" stroke="#8B9DAF" stroke-width="0.5"/>
+            </g>
+            
+            <!-- Gear Icon -->
+            <g id="gear" class="gear">
+                <circle cx="305" cy="185" r="12" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2"/>
+                <circle cx="305" cy="185" r="6" fill="#1E3A5F"/>
+                <!-- Gear teeth -->
+                <rect x="303" y="168" width="4" height="5" fill="#1E3A5F"/>
+                <rect x="303" y="197" width="4" height="5" fill="#1E3A5F"/>
+                <rect x="288" y="183" width="5" height="4" fill="#1E3A5F"/>
+                <rect x="317" y="183" width="5" height="4" fill="#1E3A5F"/>
+            </g>
+            
+            <!-- Brand Text -->
+            <text id="brand-name" x="200" y="320" text-anchor="middle" class="brand-text-main">NAMMI</text>
+            <text id="brand-sub" x="200" y="345" text-anchor="middle" class="brand-text-sub">CONSTRUCTIONS</text>
+        </svg>
+    </div>
+
+    <!-- Minimal Variant -->
+    <div id="minimal-animation" class="animation-container">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <!-- Single continuous line path -->
+            <path id="continuous-line" class="continuous-path" 
+                  d="M 80 140 L 180 140 L 180 110 L 185 110 L 185 140 L 200 140 L 200 160 L 200 170 L 180 175 L 150 200 L 150 250 L 240 250 L 240 200 L 270 180 L 285 180 L 285 250 L 320 250 L 320 230 L 320 210 L 305 200 L 310 185" 
+                  stroke="#1E3A5F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <text id="minimal-brand-name" x="200" y="310" text-anchor="middle" class="brand-text-main">NAMMI</text>
+            <text id="minimal-brand-sub" x="200" y="335" text-anchor="middle" class="brand-text-sub">CONSTRUCTIONS</text>
+        </svg>
+    </div>
+
+    <!-- Micro Animation -->
+    <div id="micro-animation" class="animation-container">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <!-- Static logo elements -->
+            <g id="micro-logo" class="micro-reveal">
+                <!-- Simplified icon -->
+                <path d="M 140 180 L 200 140 L 260 180 L 260 250 L 140 250 Z" 
+                      fill="#FFFFFF" stroke="#1E3A5F" stroke-width="3"/>
+                <rect x="180" y="160" width="40" height="40" fill="#1E3A5F" opacity="0.3"/>
+                <circle cx="230" cy="165" r="15" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2"/>
+                <circle cx="230" cy="165" r="8" fill="#1E3A5F"/>
+            </g>
+            
+            <text id="micro-brand-name" x="200" y="300" text-anchor="middle" class="brand-text-main">NAMMI</text>
+            <text id="micro-brand-sub" x="200" y="325" text-anchor="middle" class="brand-text-sub">CONSTRUCTIONS</text>
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+.control-panel {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.98);
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.12);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 2px solid #1E3A5F;
+  background: #FFFFFF;
+  color: #1E3A5F;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.control-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(30, 58, 95, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.control-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+.control-btn.active {
+  background: #1E3A5F;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(30, 58, 95, 0.3);
+}
+
+.control-btn.replay-btn {
+  border-color: #8B9DAF;
+  color: #8B9DAF;
+}
+
+.control-btn.replay-btn:hover {
+  border-color: #1E3A5F;
+  color: #1E3A5F;
+}
+
+.btn-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.animation-info {
+  font-size: 12px;
+  color: #8B9DAF;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.info-text {
+  opacity: 0;
+  animation: fadeInInfo 0.3s ease-out forwards;
+}
+
+@keyframes fadeInInfo {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .control-panel {
+    top: 15px;
+    padding: 12px 20px;
+    max-width: 90vw;
+  }
+
+  .control-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .control-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .btn-text {
+    display: none;
+  }
+
+  .btn-icon {
+    font-size: 20px;
+  }
+
+  .animation-info {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-panel {
+    top: 10px;
+    padding: 10px 15px;
+  }
+
+  .control-btn {
+    padding: 8px 12px;
+  }
+}
