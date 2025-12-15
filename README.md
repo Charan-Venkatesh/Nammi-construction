@@ -1,133 +1,230 @@
-# NAMMI Constructions - Logo Animation
+# NAMMI Constructions - Full-Stack Website
 
-Professional website entry animation for NAMMI Constructions, featuring three optimized variants.
+Professional, modern full-stack website for NAMMI Constructions featuring responsive design, comprehensive service information, and integrated contact form functionality.
 
-## 🎬 Animation Variants
+## 🌟 Features
 
-### 1. **Master Animation** (Primary - Recommended)
-- **Duration:** 4.5 seconds
-- **Elements:** Sequential crane drawing, concrete block lowering, building formation, gear rotation, and text reveal
-- **Use Case:** Premium brand experience, hero section, main landing page
+### Website Sections
+- **Home** - Hero section with company overview, services, testimonials, and statistics
+- **About Us** - Company history, mission, vision, values, and team information
+- **Services** - Detailed construction services including residential, commercial, renovation, interior design, and project management
+- **Why NAMMI** - Unique value propositions, competitive advantages, certifications, and achievements
+- **Contact Us** - Contact form with email integration, location map, and company details
 
-### 2. **Minimal Variant** (Ultra-Minimal)
-- **Duration:** 3.5 seconds  
-- **Elements:** Continuous single-line drawing forming the entire logo
-- **Use Case:** Clean, architectural presentation, portfolio sites
+### Technical Features
+- ✅ Responsive design (mobile, tablet, desktop)
+- ✅ Full-stack implementation (React frontend + Node.js backend)
+- ✅ Contact form with email notifications
+- ✅ Form validation (client-side and server-side)
+- ✅ Rate limiting for security
+- ✅ Google Maps integration
+- ✅ Professional UI with NAMMI branding (#1e3a5f navy, #ffd700 gold)
+- ✅ Smooth animations and transitions
+- ✅ SEO-ready structure
 
-### 3. **Micro Animation** (Performance Optimized)
-- **Duration:** 1.5 seconds
-- **Elements:** Fast center-outward reveal with fade-in
-- **Use Case:** Fast-loading pages, mobile-first, repeat visitors
+## 📁 Project Structure
+
+```
+NAMMI-Constructions/
+├── client/                 # React frontend
+│   ├── public/
+│   ├── src/
+│   │   ├── components/    # Reusable components (Header, Footer, etc.)
+│   │   ├── pages/         # Page components (Home, About, Services, etc.)
+│   │   ├── App.js         # Main app with routing
+│   │   └── index.js       # Entry point
+│   └── package.json
+├── server.js              # Express backend server
+├── package.json           # Backend dependencies
+├── .env.example           # Environment variables template
+└── README.md              # This file
+```
 
 ## 🚀 Quick Start
 
-1. Open `index.html` in a modern web browser
-2. Use the top buttons to switch between animation variants
-3. Click "↻ Replay" or press 'R' to replay the current animation
+### Prerequisites
+- Node.js 18+ and npm 9+
+- Git
 
-## ⌨️ Keyboard Shortcuts
+### Installation
 
-- `1` - Show Master Animation
-- `2` - Show Minimal Variant  
-- `3` - Show Micro Animation
-- `R` - Replay current animation
-
-## 🎨 Design Specifications
-
-- **Background:** Pure white (#FFFFFF)
-- **Primary Color:** Navy blue (#1E3A5F)
-- **Secondary Colors:** Grays (#8B9DAF, #D4D4D4, #E5E5E5)
-- **Animation Easing:** Smooth, intentional, premium (no bounce)
-- **Performance:** 60fps optimized, Lottie-compatible structure
-
-## 📁 File Structure
-
-```
-NAMMI-Website/
-├── index.html       # Main HTML with all three animation variants
-├── styles.css       # Animation styles and keyframes
-├── script.js        # Animation controller and interactions
-└── README.md        # This file
+1. **Clone the repository**
+```bash
+git clone https://github.com/Charan-Venkatesh/Nammi-construction.git
+cd Nammi-construction
 ```
 
-## 🛠️ Technical Details
+2. **Install dependencies**
+```bash
+# Install backend dependencies
+npm install
 
-### Animation Techniques Used:
-- **SVG Path Drawing:** `stroke-dasharray` and `stroke-dashoffset` for line animations
-- **CSS Transforms:** Smooth translations and rotations
-- **Opacity Transitions:** Soft fades for premium feel
-- **Sequenced Timing:** Carefully orchestrated animation delays
-
-### Browser Compatibility:
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🎯 UX Considerations
-
-- **First Load:** Master animation plays automatically after 300ms delay
-- **Replay Control:** Users can replay or switch variants anytime
-- **Responsive:** Scales appropriately on mobile devices
-- **Accessibility:** Animations can be paused using browser preferences for reduced motion
-
-## 📝 Customization
-
-### Adjust Animation Speed:
-Edit animation durations in `styles.css`:
-```css
-animation: drawLine 1.5s ease-out forwards;
+# Install frontend dependencies
+cd client
+npm install
+cd ..
 ```
 
-### Change Colors:
-Update color values in SVG elements:
-```html
-stroke="#1E3A5F"  <!-- Primary navy blue -->
-fill="#FFFFFF"     <!-- White fill -->
+3. **Configure environment variables**
+```bash
+# Copy the example environment file
+cp .env.example .env
+
+# Edit .env and add your email credentials
+# For Gmail, you need to use an App Password:
+# 1. Enable 2FA on your Google account
+# 2. Go to https://myaccount.google.com/apppasswords
+# 3. Generate an app password for "Mail"
+# 4. Use that password in EMAIL_PASSWORD
 ```
 
-### Modify Timing Sequence:
-Adjust `animation-delay` values in `styles.css` to change element order.
+4. **Run in development mode**
+```bash
+# Start both backend and frontend concurrently
+npm run dev
+
+# OR run them separately:
+
+# Terminal 1 - Backend (port 5000)
+npm run server
+
+# Terminal 2 - Frontend (port 3000)
+npm run client
+```
+
+5. **Access the website**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000/api/health
+
+### Production Build
+
+```bash
+# Build the frontend
+npm run build
+
+# Start the production server
+npm start
+```
+
+The production build will serve the React app from the Express server on port 5000.
+
+## 📧 Email Configuration
+
+The contact form requires email credentials to send messages. Update `.env` with your email provider details:
+
+```env
+EMAIL_SERVICE=gmail
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+EMAIL_RECIPIENT=contact@nammiconstructions.com
+```
+
+**Supported Email Services:**
+- Gmail (recommended for testing)
+- Outlook/Hotmail
+- Yahoo
+- Custom SMTP servers
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary:** #1E3A5F (Navy Blue) - Trust and professionalism
+- **Accent:** #FFD700 (Gold) - Premium and quality
+- **Secondary:** #8B9DAF (Blue Gray) - Supporting elements
+- **Background:** #FFFFFF (White) - Clean and modern
+
+### Typography
+- **Headings:** System fonts (Segoe UI, Roboto, Helvetica)
+- **Body:** Optimized for readability across devices
+
+## 🛠️ API Endpoints
+
+### Health Check
+```
+GET /api/health
+```
+Returns server status and timestamp.
+
+### Contact Form
+```
+POST /api/contact
+```
+Submit contact form with the following fields:
+- `name` (required, 2-100 characters)
+- `email` (required, valid email)
+- `phone` (required, valid phone format)
+- `message` (required, 10-1000 characters)
+- `service` (optional, service interest)
+
+**Rate Limiting:** 5 requests per 15 minutes per IP
+
+## 🔒 Security Features
+
+- Rate limiting on contact form
+- Input validation and sanitization
+- CORS protection
+- Helmet.js security headers
+- Environment variable protection
+
+## 📱 Responsive Breakpoints
+
+- **Mobile:** < 480px
+- **Tablet:** 480px - 768px
+- **Desktop:** > 768px
 
 ## 🚀 Deployment
 
-1. **Static Hosting:** Upload all files to any web server
-2. **CDN:** Serve via Cloudflare, Netlify, or Vercel
-3. **Integration:** Embed in existing websites using iframe or direct integration
+### Heroku
+```bash
+# Login to Heroku
+heroku login
 
-## 💡 Integration Example
+# Create new app
+heroku create nammi-constructions
 
-To use as a loading screen:
+# Set environment variables
+heroku config:set EMAIL_SERVICE=gmail
+heroku config:set EMAIL_USER=your-email@gmail.com
+heroku config:set EMAIL_PASSWORD=your-app-password
+heroku config:set NODE_ENV=production
 
-```html
-<div id="loader">
-    <iframe src="path/to/index.html" frameborder="0"></iframe>
-</div>
-<script>
-    setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-    }, 5000); // Hide after animation completes
-</script>
+# Deploy
+git push heroku main
 ```
 
-## 📊 Performance Metrics
+### Netlify/Vercel
+For static hosting of the React frontend:
+```bash
+cd client
+npm run build
+# Deploy the build folder
+```
 
-- **File Size:** ~10KB total (HTML + CSS + JS)
-- **Load Time:** <100ms on 3G
-- **Animation Performance:** 60fps on modern devices
-- **First Contentful Paint:** <0.5s
+### Traditional Server
+```bash
+# Build the frontend
+npm run build
 
-## 🎨 Design Philosophy
+# Copy files to server and run
+npm start
+```
 
-> "Less motion, more meaning"
+## 🤝 Contributing
 
-Each animation element serves a purpose:
-- **Crane:** Construction & building process
-- **Blocks:** Material & structure
-- **Gear:** Engineering precision
-- **House:** Final deliverable & trust
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+
+MIT License - See LICENSE file for details
+
+## 👥 Support
+
+For support, email contact@nammiconstructions.com or create an issue on GitHub.
 
 ---
 
-**Created for NAMMI Constructions**  
-*Trust-led, engineering-first, premium construction brand*
+**NAMMI Constructions** - Building Dreams with Excellence Since 2008
