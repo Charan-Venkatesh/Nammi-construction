@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHardHat, FaBuilding, FaPaintRoller, FaCheckCircle } from 'react-icons/fa';
-import Logo3DAnimation from '../components/Logo3DAnimation';
+import Logo3DAnimationSimple from '../components/Logo3DAnimationSimple';
 import './Home.css';
 
 function Home() {
@@ -21,7 +21,7 @@ function Home() {
       {/* Hero Section with Animation */}
       {showAnimation && (
         <div className="animation-overlay">
-          <Logo3DAnimation />
+          <Logo3DAnimationSimple />
         </div>
       )}
 

@@ -294,8 +294,20 @@ const BrickWall3D = ({ animationProgress }) => {
       ))}
       
       {/* Vertical brick lines - staggered pattern */}
-      {[0, 1, 2, 3, 4, 5].map((row) => (
-        <React.Positioned on swoosh curve (exact logo placement)
+      {[0, 1, 2, 3, 4, 5].map((row) => {
+        const cols = row % 2 === 0 ? [0, 1, 2] : [0.5, 1.5];
+        return cols.map((col) => (
+          <mesh key={`v-${row}-${col}`} position={[col * 0.24 - 0.36, -0.7 + row * 0.24, 0.21]}>
+            <boxGeometry args={[0.015, 0.24, 0.015]} />
+            <meshStandardMaterial color="#8B9DAF" />
+          </mesh>
+        ));
+      })}
+    </group>
+  );
+};
+
+// Gear3D component
 const Gear3D = ({ animationProgress }) => {
   const gearRef = useRef();
   const [scale, setScale] = useState(0);
