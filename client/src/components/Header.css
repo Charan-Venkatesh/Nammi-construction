@@ -5,16 +5,24 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(30, 58, 95, 0.95);
-  backdrop-filter: blur(10px);
+  background: 
+    linear-gradient(180deg, rgba(15, 39, 68, 0.98) 0%, rgba(30, 58, 95, 0.95) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    inset 0 -1px 0 rgba(255, 215, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .header.scrolled {
-  background: rgba(30, 58, 95, 0.98);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  background: 
+    linear-gradient(180deg, rgba(15, 39, 68, 1) 0%, rgba(30, 58, 95, 1) 100%);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 0 rgba(255, 215, 0, 0.2);
+  border-bottom-color: rgba(255, 215, 0, 0.2);
 }
 
 .header-container {
@@ -46,6 +54,16 @@
   font-weight: 700;
   color: white;
   letter-spacing: 1px;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-main {
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.6),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo-sub {
@@ -53,6 +71,7 @@
   color: #ffd700;
   letter-spacing: 2px;
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 /* Navigation */
@@ -74,22 +93,41 @@
 }
 
 .nav-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   padding: 8px 0;
   display: block;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 .nav-link:hover {
   color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.nav-link:hover::before {
+  width: 100%;
 }
 
 .nav-link.active {
   color: #ffd700;
   position: relative;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 
 .nav-link.active::after {
@@ -99,7 +137,14 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #ffd700;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  animation: linkGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes linkGlow {
+  from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+  to { box-shadow: 0 0 20px rgba(255, 215, 0, 1); }
 }
 
 /* Mobile Menu Toggle */

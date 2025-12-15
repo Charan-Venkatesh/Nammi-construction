@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHardHat, FaBuilding, FaPaintRoller, FaCheckCircle } from 'react-icons/fa';
-import Logo3DAnimationSimple from '../components/Logo3DAnimationSimple';
+import MasterAnimation from '../components/MasterAnimation';
 import './Home.css';
 
 function Home() {
   const [showAnimation, setShowAnimation] = useState(true);
 
   useEffect(() => {
-    // Hide animation after it completes
+    // Hide animation after it completes (5.5 seconds for master animation)
     const timer = setTimeout(() => {
       setShowAnimation(false);
-    }, 5000);
+    }, 5500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +21,7 @@ function Home() {
       {/* Hero Section with Animation */}
       {showAnimation && (
         <div className="animation-overlay">
-          <Logo3DAnimationSimple />
+          <MasterAnimation />
         </div>
       )}
 
