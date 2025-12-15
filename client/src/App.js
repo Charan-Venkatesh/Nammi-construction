@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Logo3DAnimation from './components/Logo3DAnimation';
-import ControlPanel from './components/ControlPanel';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import WhyNammi from './pages/WhyNammi';
+import Contact from './pages/Contact';
 
 function App() {
-  const [replayKey, setReplayKey] = useState(0);
-
-  const handleReplay = () => {
-    setReplayKey(prev => prev + 1);
-  };
-
   return (
-    <div className="App">
-      <ControlPanel 
-        onReplay={handleReplay}
-      />
-      
-      <div className="animation-stage-3d">
-        <Logo3DAnimation key={`animation-${replayKey}`} />
+    <Router>
+      <div className="App">
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/why-nammi" element={<WhyNammi />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-
-      <div className="info-footer">
-        <p className="brand-tagline">Trust-led, engineering-first, premium construction</p>
-      </div>
-    </div>
+    </Router>
   );
 }
 
