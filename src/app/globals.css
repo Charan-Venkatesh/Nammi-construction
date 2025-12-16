@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void-navy: #050A14;
-  --color-concrete-white: #F2F2F2;
-  --color-safety-orange: #FF4D00;
+  --color-nammi-navy: #002855;
+  --color-nammi-orange: #FF6B00;
+  --color-nammi-blue-light: #F0F7FF;
+  --color-nammi-white: #FFFFFF;
 
   --font-sans: var(--font-manrope);
   --font-display: var(--font-oswald);
 }
 
 :root {
-  --background: #050A14;
-  --foreground: #F2F2F2;
+  --background: #FFFFFF;
+  --foreground: #002855;
 }
 
 body {
