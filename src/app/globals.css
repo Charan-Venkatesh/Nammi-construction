@@ -5,8 +5,8 @@
   --color-concrete-white: #F2F2F2;
   --color-safety-orange: #FF4D00;
 
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-oswald);
 }
 
 :root {
