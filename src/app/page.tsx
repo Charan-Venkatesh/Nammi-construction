@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { SITE_DATA } from '@/lib/data';
 
 export default function Home() {
@@ -67,6 +67,40 @@ export default function Home() {
         </div>
       </div>
 
+       {/* Client Trust Marquee (New Feature) */}
+      <div className="w-full bg-nammi-navy text-white py-6 overflow-hidden relative z-20">
+         <motion.div
+            className="flex whitespace-nowrap"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+         >
+            <div className="flex gap-12 items-center px-6">
+               <span className="text-xl font-display uppercase font-bold opacity-50">TRUSTED BY LEADERS</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">100+ SUCCESSFUL PROJECTS</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">ISO 9001 CERTIFIED</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">AWARD WINNING DESIGN</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">SWISS ENGINEERING</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+            </div>
+             <div className="flex gap-12 items-center px-6">
+               <span className="text-xl font-display uppercase font-bold opacity-50">TRUSTED BY LEADERS</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">100+ SUCCESSFUL PROJECTS</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">ISO 9001 CERTIFIED</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">AWARD WINNING DESIGN</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+               <span className="text-xl font-display uppercase font-bold opacity-50">SWISS ENGINEERING</span>
+               <span className="w-2 h-2 rounded-full bg-nammi-orange"></span>
+            </div>
+         </motion.div>
+      </div>
+
       {/* Services List (Matching Flyer) */}
       <div className="container mx-auto px-6 py-20 relative z-10">
          <motion.div
@@ -86,10 +120,12 @@ export default function Home() {
                      From residential dreams to commercial landmarks, we deliver excellence in every square meter.
                   </p>
                   {/* Decorative "Contact" Circle from Flyer */}
-                  <div className="relative w-full aspect-square max-w-[200px] rounded-full overflow-hidden border-4 border-white shadow-xl bg-nammi-navy flex items-center justify-center group cursor-pointer">
-                     <div className="absolute inset-0 bg-nammi-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                     <span className="relative z-10 font-bold text-white text-xl uppercase">Contact Us</span>
-                  </div>
+                   <Link href="/contact">
+                     <div className="relative w-full aspect-square max-w-[200px] rounded-full overflow-hidden border-4 border-white shadow-xl bg-nammi-navy flex items-center justify-center group cursor-pointer cursor-interactive">
+                        <div className="absolute inset-0 bg-nammi-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <span className="relative z-10 font-bold text-white text-xl uppercase">Contact Us</span>
+                     </div>
+                   </Link>
                </div>
 
                <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">

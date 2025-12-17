@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Oswald } from "next/font/google";
 import "./globals.css";
 import PersistentLayout from "@/components/PersistentLayout";
+import CustomCursor from "@/components/CustomCursor";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -26,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${oswald.variable} antialiased font-sans bg-void-navy text-concrete-white overflow-x-hidden`}
+        className={`${manrope.variable} ${oswald.variable} antialiased font-sans bg-white text-nammi-navy overflow-x-hidden`}
       >
+        <CustomCursor />
         <PersistentLayout>
           {children}
         </PersistentLayout>
